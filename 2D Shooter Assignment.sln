@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D Shooter Assignment.CSharp.Plugins", "2D Shooter Assignment.CSharp.Plugins.csproj", "{B5FDB0A6-01C3-41F9-278B-48E698EEB52E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2D Shooter Assignment.CSharp", "2D Shooter Assignment.CSharp.csproj", "{056A7B79-5F06-6A06-AC9B-E8A94BDDF68D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5FDB0A6-01C3-41F9-278B-48E698EEB52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FDB0A6-01C3-41F9-278B-48E698EEB52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FDB0A6-01C3-41F9-278B-48E698EEB52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FDB0A6-01C3-41F9-278B-48E698EEB52E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056A7B79-5F06-6A06-AC9B-E8A94BDDF68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056A7B79-5F06-6A06-AC9B-E8A94BDDF68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056A7B79-5F06-6A06-AC9B-E8A94BDDF68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056A7B79-5F06-6A06-AC9B-E8A94BDDF68D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
