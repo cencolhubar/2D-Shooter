@@ -15,19 +15,33 @@ public class RobberController : MonoBehaviour
     public Boundary boundary;
     public AudioSource Acc;
     private float target;
+    public GameObject AItarget;
+    public Transform AItransform;
+   private bool targetAcquired=false;
 
     // Use this for initialization
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         Acc = GetComponent<AudioSource>();
-       // target = Random.Range(boundary.xMin, boundary.xMax);
-        target = Random.Range(-4.0f, 4.0f);
-        Debug.Log("Target"+target);
+        target = Random.Range(boundary.xMin, boundary.xMax);
+        //target = Random.Range(-4.0f, 4.0f);
+        Instantiate(AItarget, new Vector3(
+
+        Mathf.Clamp(AItarget.GetComponent<Transform>().position.x, boundary.xMin, boundary.xMax),
+        0.0f,
+       rb.position.z
+
+        ), AItransform.rotation);
+        Debug.Log("Target"+ AItarget.GetComponent<Transform>().position.x);
+
      }
 
     void Update()
     {
+
+
         /*
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -38,78 +52,49 @@ public class RobberController : MonoBehaviour
             Acc.Stop();
         
             */
+
+        //  rb.GetComponent<Transform>().LookAt(AItarget.transform);
+
+        /*
+        if (Vector3.Distance(rb.GetComponent<Transform>().position, AItarget.transform.position) > 1f&& targetAcquired == false) {
+            rb.GetComponent<Transform>().Translate(new Vector3(speed*Time.deltaTime,0,0));
+
+            Debug.Log("Tracking Target "+ rb.GetComponent<Transform>().position.x+" "+ AItarget.GetComponent<Transform>().position.x);
+        }
+        if (Vector3.Distance(rb.GetComponent<Transform>().position, AItarget.transform.position) <= 1f)
+        {
+            targetAcquired = true;
+            Debug.Log("TargetAcquired");
+
+            resetTarget();
+            
+        }
+       
+        */
+
     }
 
     // Used for physics
     void FixedUpdate()
     {
 
-        // float moveHorizontal = Input.GetAxis("Horizontal");
-        // float moveVertical = Input.GetAxis("Vertical");
-        Debug.Log("Target" + target);
-        Debug.Log("rb.position.x" + rb.position.x);
-        Debug.Log("boundary.xMin" + boundary.xMin);
-        Debug.Log("boundary.xMax" + boundary.xMax);
-        if ((float)rb.position.x > -4)
-        {
-            // float moveHorizontal = Random.Range(0.0f, -1.0f);
-            float moveHorizontal = 0.1f;
-            float moveVertical = 0.0f;
-           
-
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-            //rb.AddForce(movement * speed);
-
-            rb.velocity = movement * speed;
-            rb.position = new Vector3(
-
-        Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-        0.0f,
-        Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
-
-
-        );
-            /*
-              if (rb.position.x <= target)
-            {
-                target = Random.Range(-4.0f, 4.0f);
-            }
-              */
-
-        }
-        else if ((float)rb.position.x < 4) {
-            //float moveHorizontal = Random.Range(0.0f, 1.0f);
-            float moveHorizontal = 1.0f;
-            float moveVertical = 0.0f;
-           
-
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-            //rb.AddForce(movement * speed);
-
-            rb.velocity = movement * speed;
-            rb.position = new Vector3(
-
-        Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-        0.0f,
-        Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
-
-
-        );
-
-            /*
-            if (rb.position.x > target)
-            {
-                target = Random.Range(-4.0f, 4.0f);
-            }
-             */
-
-        }
-
-        if ((float)rb.position.x == (float)target)
-        {
-            target = Random.Range(-4.0f, 4.0f);
-        }
     }
+
+    void  resetTarget()
+    {
+
+        target = Random.Range(boundary.xMin, boundary.xMax);
+        AItarget.transform.position = new Vector3(
+
+    Mathf.Clamp(target, boundary.xMin, boundary.xMax),
+    0.0f,
+    Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
+
+
+    );
+
+        Debug.Log("New Target "+ AItarget.GetComponent<Transform>().position.x);
+        targetAcquired = false;
+    }
+
 }

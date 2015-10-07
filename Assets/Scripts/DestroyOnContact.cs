@@ -39,8 +39,17 @@ public class DestroyOnContact : MonoBehaviour {
             //gameController.AddScore(scoreValue);
             gameController.GameOver();
         }
-        Destroy(other.gameObject);
-        Destroy(gameObject);
+
+        if (other.tag == "Shot")
+        {
+            Instantiate(explosion, other.transform.position, other.transform.rotation);
+            //gameController.AddScore(scoreValue);
+            // gameController.GameOver();
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+
+
        
     }
 }
