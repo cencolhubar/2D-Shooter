@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
+/// <summary>
+//Logic for enemy AI...This was aborted in order to reduce the scope so the project could be handed in..
+// I was having issues with comparing the location of the enemy boss to the target
+/// </summary>
+
+
 [System.Serializable]
 public class RobberBoundary
 {
@@ -19,9 +27,24 @@ public class RobberController : MonoBehaviour
     public Transform AItransform;
    private bool targetAcquired=false;
 
+    public GameObject playerExplosion;
+    public AudioSource exp;
+    private GameController gameController;
+
     // Use this for initialization
     void Start()
     {
+
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' Script");
+        }
+
 
         rb = GetComponent<Rigidbody>();
         Acc = GetComponent<AudioSource>();
@@ -96,5 +119,21 @@ public class RobberController : MonoBehaviour
         Debug.Log("New Target "+ AItarget.GetComponent<Transform>().position.x);
         targetAcquired = false;
     }
+    /*
+    void OnTriggerEnter(Collider other)
+    {
+               if (other.tag == "Shot")
+        {
+            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            exp.Play();
+            //gameController.AddScore(scoreValue);
+            // Destroy(other.gameObject);
+            Destroy(gameObject);
+            gameController.GameOver();
+        }
+    }
+    */
+
+
 
 }

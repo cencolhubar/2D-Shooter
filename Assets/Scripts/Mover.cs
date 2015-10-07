@@ -8,6 +8,7 @@ public class Mover : MonoBehaviour {
 
     void Start()
     {
+        //Allows the coins and hazards to fall
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
 }

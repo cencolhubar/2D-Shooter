@@ -14,6 +14,7 @@ public class PoliceController : MonoBehaviour
     public float speed;
     public Boundary boundary;
     public AudioSource Acc;
+    public AudioSource Fire;
 
     public GameObject shot;
     public Transform shotSpawn;
@@ -30,13 +31,14 @@ public class PoliceController : MonoBehaviour
 
     void Update()
     {
+        //Accept input from space bar to fire shots
         if (Input.GetKeyDown(KeyCode.Space)
             && Time.time > nextFire
             )
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            GetComponent<AudioSource>().Play();
+            Fire.Play();
 
 
         }
@@ -58,12 +60,15 @@ public class PoliceController : MonoBehaviour
         // Used for physics
     void FixedUpdate()
     {
+
+        
+    //Accepting input from player to control the police vehicle
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        //rb.AddForce(movement * speed);
+        
        rb.velocity = movement *speed;
         rb.position = new Vector3(
 

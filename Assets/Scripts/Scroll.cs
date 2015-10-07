@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// This class is one of two classes that work together to scroll the blackground
+/// </summary>
 public class Scroll : MonoBehaviour {
 
     public float scrSpeed;

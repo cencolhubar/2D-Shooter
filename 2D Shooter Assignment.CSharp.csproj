@@ -78,17 +78,20 @@
     <Compile Include="Assets\CRCPV2-01\Script\OrbitCamera.cs" />
     <Compile Include="Assets\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
-    <Compile Include="Assets\Scripts\DestroyByContact.cs" />
     <Compile Include="Assets\Scripts\DestroyOnContact.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />
     <Compile Include="Assets\Scripts\PoliceController.cs" />
     <Compile Include="Assets\Scripts\RobberController.cs" />
+    <Compile Include="Assets\Scripts\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Scroll.cs" />
     <Compile Include="Assets\Scripts\Scroll1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\CRCPV2-01\Information\Colors.txt" />
+    <None Include="Assets\Cartoon Props Pack\ReadMe.txt" />
+    <None Include="Assets\Cartoon Props Pack\Shaders\Diffuse_DoubleSided.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Vehicles\Aircraft\AircraftGuidelines.txt" />
     <None Include="Assets\Standard Assets\Vehicles\Car\CarGuidelines.txt" />
